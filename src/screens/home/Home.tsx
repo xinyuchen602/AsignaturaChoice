@@ -1,9 +1,16 @@
 import React, {useState} from 'react';
-import {View, TextInput, ScrollView, Text} from 'react-native';
+import {
+  View,
+  TextInput,
+  ScrollView,
+  Text,
+  Touchable,
+  TouchableOpacity,
+} from 'react-native';
 import style from './Home.scss';
 import {styles} from '../../styles';
 
-const Home = () => {
+const Home = ({navigation}: any) => {
   const [search, setSearch] = useState('');
   const [universities, setUniversities] = useState([
     'Universidad 1',
@@ -36,9 +43,12 @@ const Home = () => {
             university.toLowerCase().includes(search.toLowerCase()),
           )
           .map(university => (
-            <View key={university} style={style.card}>
+            <TouchableOpacity
+              onPress={() => navigation.push('Career')}
+              key={university}
+              style={style.card}>
               <Text style={style.cardTitle}>{university}</Text>
-            </View>
+            </TouchableOpacity>
           ))}
       </ScrollView>
     </View>
