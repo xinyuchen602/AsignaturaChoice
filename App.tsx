@@ -6,6 +6,7 @@ import Register from './src/screens/register/Register';
 import Home from './src/screens/home/Home';
 import {Image} from 'react-native';
 import {styles} from './src/styles';
+import Career from './src/screens/career/Career';
 
 const Stack = createNativeStackNavigator();
 
@@ -43,6 +44,13 @@ export default function App() {
           component={Home}
           options={{
             title: 'Tú Universidad',
+          }}
+        />
+        <Stack.Screen
+          name="Career"
+          component={Career}
+          options={{
+            title: 'Tú Grado',
           }}
         />
       </Stack.Navigator>
