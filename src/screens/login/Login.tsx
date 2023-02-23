@@ -1,31 +1,32 @@
 import React, {useState} from 'react';
 import {View, TextInput, Text, Image} from 'react-native';
 import style from './Login.scss';
-import {styles} from '../../../App';
-import {useNavigation} from '@react-navigation/native';
+import {styles} from '../../styles';
 
-const Login = () => {
+const Login = ({navigation}: any) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = () => {
-    // your login logic here
+    navigation.push('Home');
   };
 
-  const handleRegister = () => {};
+  const handleRegister = () => {
+    navigation.push('Register');
+  };
 
   return (
     <View style={style.container}>
       <Image source={require('../../assets/icon.png')} style={style.logo} />
       <Text style={[style.title, styles.elevation]}>Tú Asignatura</Text>
       <TextInput
-        style={[style.input, styles.elevation]}
+        style={[styles.input, styles.elevation]}
         placeholder="Usuario"
         value={username}
         onChangeText={setUsername}
       />
       <TextInput
-        style={[style.input, styles.elevation]}
+        style={[styles.input, styles.elevation]}
         placeholder="Contraseña"
         value={password}
         onChangeText={setPassword}

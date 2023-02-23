@@ -1,11 +1,15 @@
 import {Image, Text, TextInput, View} from 'react-native';
 import style from './Register.scss';
 import React, {useState} from 'react';
-import {styles} from '../../../App';
+import {styles} from '../../styles';
 
-const Register = () => {
+const Register = ({navigation}: any) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+
+  const handleRegister = () => {
+    navigation.goBack();
+  };
 
   return (
     <View style={style.container}>
@@ -31,7 +35,14 @@ const Register = () => {
         onChangeText={setPassword}
         secureTextEntry
       />
-      <Text style={[style.button, styles.elevation]}>Registrarse</Text>
+      <Text onPress={handleRegister} style={[style.button, styles.elevation]}>
+        Registrarse
+      </Text>
+      <Text
+        onPress={() => navigation.goBack()}
+        style={[style.buttonBack, styles.elevation]}>
+        Cancelar
+      </Text>
     </View>
   );
 };

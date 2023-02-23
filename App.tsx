@@ -2,23 +2,49 @@ import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Login from './src/screens/login/Login';
-import {StyleSheet} from 'react-native';
 import Register from './src/screens/register/Register';
+import Home from './src/screens/home/Home';
+import {Image} from 'react-native';
+import {styles} from './src/styles';
 
 const Stack = createNativeStackNavigator();
 
-export const styles = StyleSheet.create({
-  elevation: {
-    elevation: 5,
-    shadowColor: '#000000',
-  },
-});
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login">
-        <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="Register" component={Register} />
+      <Stack.Navigator
+        initialRouteName="Login"
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: '#C1C1C1',
+          },
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+          headerRight: () => (
+            <Image
+              source={require('./src/assets/icon.png')}
+              style={styles.logo}
+            />
+          ),
+        }}>
+        <Stack.Screen
+          name="Login"
+          component={Login}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Register"
+          component={Register}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Home"
+          component={Home}
+          options={{
+            title: 'Tú Universidad',
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
