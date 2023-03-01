@@ -9,6 +9,8 @@ import {
 import style from './Home.scss';
 import {styles} from '../../styles';
 import {University} from '../../model/model';
+import axios from 'axios';
+import {base_url} from '../../constants';
 
 const Home = ({navigation}: any) => {
   const [search, setSearch] = useState('');
@@ -27,17 +29,26 @@ const Home = ({navigation}: any) => {
     {id: 12, name: 'Universidad 12'},
   ]);
 
+  axios
+    .get(`${base_url}university`)
+    .then(response => {
+      setUniversities(response.data);
+    })
+    .catch(error => {
+      console.log(error);
+    });
+
   return (
-    <View style={style.container}>
+    <View style={styles.container}>
       <TextInput
-        style={[style.input, styles.elevation]}
+        style={[styles.searchBar, styles.elevation]}
         placeholder="Buscar"
         value={search}
         onChangeText={value => {
           setSearch(value);
         }}
       />
-      <ScrollView style={style.scroll}>
+      <ScrollView style={styles.fullSizeBox}>
         {universities
           .filter(university =>
             university.name.toLowerCase().includes(search.toLowerCase()),

@@ -19,30 +19,11 @@
     margin-bottom: 20px;
 }
 
-.input {
-    width: 80%;
-    height: 40px;
-    padding: 0;
-    border-width: 1px;
-    border-color: black;
-    margin-bottom: 16px;
-    border-radius: 10px;
-    background-color: $base-grey;
-    font-size: 20px;
-}
-
 .registerText {
     color: $base-orange;
     margin-top: 10px;
     margin-right: 10px;
     font-size: 18px;
-}
-
-.actionContainer {
-    flex-direction: row;
-    align-content: flex-end;
-    justify-content: space-between;
-    color: $base-orange;
 }
 
 .button {

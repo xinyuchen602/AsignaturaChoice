@@ -20,16 +20,16 @@ const Career = () => {
     'Grado 12',
   ]);
   return (
-    <View style={style.container}>
+    <View style={styles.container}>
       <TextInput
-        style={[style.input, styles.elevation]}
+        style={[styles.searchBar, styles.elevation]}
         placeholder="Buscar"
         value={search}
         onChangeText={value => {
           setSearch(value);
         }}
       />
-      <ScrollView style={style.scroll}>
+      <ScrollView style={styles.fullSizeBox}>
         {careers
           .filter(career => career.toLowerCase().includes(search.toLowerCase()))
           .map(career => (

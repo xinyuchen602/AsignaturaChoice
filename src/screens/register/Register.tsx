@@ -16,20 +16,20 @@ const Register = ({navigation}: any) => {
       <Image source={require('../../assets/icon.png')} style={style.logo} />
       <Text style={[style.title, styles.elevation]}>Tú Asignatura</Text>
       <TextInput
-        style={[style.input, styles.elevation]}
+        style={[styles.input, styles.elevation]}
         placeholder="Usuario"
         value={username}
         onChangeText={setUsername}
       />
       <TextInput
-        style={[style.input, styles.elevation]}
+        style={[styles.input, styles.elevation]}
         placeholder="Contraseña"
         value={password}
         onChangeText={setPassword}
         secureTextEntry
       />
       <TextInput
-        style={[style.input, styles.elevation]}
+        style={[styles.input, styles.elevation]}
         placeholder="Repetir contraseña"
         value={password}
         onChangeText={setPassword}
