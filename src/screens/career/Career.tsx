@@ -13,6 +13,11 @@ const Career = () => {
     'Grado 5',
     'Grado 6',
     'Grado 7',
+    'Grado 8',
+    'Grado 9',
+    'Grado 10',
+    'Grado 11',
+    'Grado 12',
   ]);
   return (
     <View style={style.container}>

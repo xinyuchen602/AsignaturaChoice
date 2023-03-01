@@ -4,27 +4,27 @@ import {
   TextInput,
   ScrollView,
   Text,
-  Touchable,
   TouchableOpacity,
 } from 'react-native';
 import style from './Home.scss';
 import {styles} from '../../styles';
+import {University} from '../../model/model';
 
 const Home = ({navigation}: any) => {
   const [search, setSearch] = useState('');
-  const [universities, setUniversities] = useState([
-    'Universidad 1',
-    'Universidad 2',
-    'Universidad 3',
-    'Universidad 4',
-    'Universidad 5',
-    'Universidad 6',
-    'Universidad 7',
-    'Universidad 8',
-    'Universidad 9',
-    'Universidad 10',
-    'Universidad 11',
-    'Universidad 12',
+  const [universities, setUniversities] = useState<University[]>([
+    {id: 1, name: 'Universidad 1'},
+    {id: 2, name: 'Universidad 2'},
+    {id: 3, name: 'Universidad 3'},
+    {id: 4, name: 'Universidad 4'},
+    {id: 5, name: 'Universidad 5'},
+    {id: 6, name: 'Universidad 6'},
+    {id: 7, name: 'Universidad 7'},
+    {id: 8, name: 'Universidad 8'},
+    {id: 9, name: 'Universidad 9'},
+    {id: 10, name: 'Universidad 10'},
+    {id: 11, name: 'Universidad 11'},
+    {id: 12, name: 'Universidad 12'},
   ]);
 
   return (
@@ -40,14 +40,14 @@ const Home = ({navigation}: any) => {
       <ScrollView style={style.scroll}>
         {universities
           .filter(university =>
-            university.toLowerCase().includes(search.toLowerCase()),
+            university.name.toLowerCase().includes(search.toLowerCase()),
           )
           .map(university => (
             <TouchableOpacity
               onPress={() => navigation.push('Career')}
-              key={university}
+              key={university.id}
               style={style.card}>
-              <Text style={style.cardTitle}>{university}</Text>
+              <Text style={style.cardTitle}>{university.name}</Text>
             </TouchableOpacity>
           ))}
       </ScrollView>
