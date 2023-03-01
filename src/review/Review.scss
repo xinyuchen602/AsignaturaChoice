@@ -1,0 +1,82 @@
+@import "./../styles";
+
+.container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding-left: 16px;
+  padding-right: 16px;
+  background: $base-red;
+}
+
+.logo {
+  width: 260px;
+  height: 260px;
+}
+
+.title {
+  font-size: 40px;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.input {
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  border-width: 1px;
+  border-color: black;
+  margin: 16px;
+  border-radius: 10px;
+  background-color: $base-grey;
+  font-size: 20px;
+}
+
+.registerText {
+  color: $base-orange;
+  margin-top: 10px;
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+.actionContainer {
+  flex-direction: row;
+  align-content: flex-end;
+  justify-content: space-between;
+  color: $base-orange;
+}
+
+.button {
+  width: 80%;
+  height: 40px;
+  padding: 10px;
+  border-width: 1px;
+  border-color: black;
+  margin-bottom: 16px;
+  border-radius: 10px;
+  background-color: $base-orange;
+  font-size: 18px;
+  color: white;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.scroll {
+  width: 100%;
+  height: 100%;
+}
+
+.card {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  margin: 5px 0 5px 0;
+  width: 100%;
+  height: 60px;
+  padding: 16px;
+  border-width: 1px;
+  border-color: black;
+  border-radius: 10px;
+  background-color: $base-grey;
+  font-size: 20px;
+}
