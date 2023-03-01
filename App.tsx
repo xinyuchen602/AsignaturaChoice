@@ -7,6 +7,8 @@ import Home from './src/screens/home/Home';
 import {Image} from 'react-native';
 import {styles} from './src/styles';
 import Career from './src/screens/career/Career';
+import Course from './src/screens/course/Course';
+import Review from './src/screens/review/Review';
 
 const Stack = createNativeStackNavigator();
 
@@ -51,6 +53,20 @@ export default function App() {
           component={Career}
           options={{
             title: 'Tú Grado',
+          }}
+        />
+        <Stack.Screen
+          name="Course"
+          component={Course}
+          options={{
+            title: 'Tú Asignatura',
+          }}
+        />
+        <Stack.Screen
+          name="Review"
+          component={Review}
+          options={{
+            title: 'Tú comentario',
           }}
         />
       </Stack.Navigator>

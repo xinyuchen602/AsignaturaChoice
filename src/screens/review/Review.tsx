@@ -1,19 +1,19 @@
 import React, {useState} from 'react';
 import {View, TextInput, ScrollView, Text} from 'react-native';
 import style from './Review.scss';
-import {styles} from './../styles';
+import {styles} from '../../styles';
 
 const Review = () => {
   const [search, setSearch] = useState('');
   const [reviews, setReviews] = useState([
-    'Review 1',
-    'Review 2',
-    'Review 3',
-    'Review 4',
-    'Review 5',
-    'Review 6',
-    'Review 7',
-    'Review 8',
+    'Course 1',
+    'Course 2',
+    'Course 3',
+    'Course 4',
+    'Course 5',
+    'Course 6',
+    'Course 7',
+    'Course 8',
   ]);
   return (
     <View style={style.container}>
