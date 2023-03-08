@@ -11,13 +11,16 @@ const Login = ({navigation}: any) => {
 
   const handleLogin = () => {
     axios
-      .post(`${base_url}login.php?username=${username}&password=${password}`)
+      .post(`${base_url}login2.php`, {
+        username: username,
+        password: password,
+      })
       .then(response => {
         console.log(response);
         navigation.push('Home');
       })
       .catch(error => {
-        navigation.push('Home');
+        // navigation.push('Home');
         console.log(error);
       });
   };
