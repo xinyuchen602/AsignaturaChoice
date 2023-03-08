@@ -30,7 +30,7 @@ const Home = ({navigation}: any) => {
   ]);
 
   axios
-    .get(`${base_url}university`)
+    .get(`${base_url}university.php`)
     .then(response => {
       setUniversities(response.data);
     })

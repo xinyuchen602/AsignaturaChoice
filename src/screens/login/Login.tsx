@@ -2,13 +2,24 @@ import React, {useState} from 'react';
 import {View, TextInput, Text, Image} from 'react-native';
 import style from './Login.scss';
 import {styles} from '../../styles';
+import axios from 'axios';
+import {base_url} from '../../constants';
 
 const Login = ({navigation}: any) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = () => {
-    navigation.push('Home');
+    axios
+      .post(`${base_url}login.php?username=${username}&password=${password}`)
+      .then(response => {
+        console.log(response);
+        navigation.push('Home');
+      })
+      .catch(error => {
+        navigation.push('Home');
+        console.log(error);
+      });
   };
 
   const handleRegister = () => {

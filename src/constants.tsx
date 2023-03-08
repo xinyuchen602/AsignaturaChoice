@@ -1,1 +1,1 @@
-export const base_url = 'http://asignaturachoice.me/';
+export const base_url = 'http://asignaturachoice.me/ws/';

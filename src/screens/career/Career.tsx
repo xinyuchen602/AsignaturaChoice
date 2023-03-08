@@ -1,9 +1,15 @@
 import React, {useState} from 'react';
-import {View, TextInput, ScrollView, Text} from 'react-native';
+import {
+  View,
+  TextInput,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+} from 'react-native';
 import style from './Career.scss';
 import {styles} from '../../styles';
 
-const Career = () => {
+const Career = ({navigation}: any) => {
   const [search, setSearch] = useState('');
   const [careers, setCareers] = useState([
     'Grado 1',
@@ -33,9 +39,12 @@ const Career = () => {
         {careers
           .filter(career => career.toLowerCase().includes(search.toLowerCase()))
           .map(career => (
-            <View key={career} style={style.card}>
+            <TouchableOpacity
+              onPress={() => navigation.push('Course')}
+              key={career}
+              style={style.card}>
               <Text style={style.cardTitle}>{career}</Text>
-            </View>
+            </TouchableOpacity>
           ))}
       </ScrollView>
     </View>
