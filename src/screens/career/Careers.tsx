@@ -7,21 +7,22 @@ import {
   TouchableOpacity,
   ActivityIndicator,
 } from 'react-native';
-import style from './Home.scss';
+import style from './Careers.scss';
 import {base_grey, styles} from '../../styles';
-import {University} from '../../model/model';
-import axios from 'axios';
+import axios from 'axios/index';
 import {base_url} from '../../constants';
+import {Career} from '../../model/model';
 
-const Home = ({navigation}: any) => {
+const Careers = ({route, navigation}: any) => {
+  const {universityId} = route.params;
   const [search, setSearch] = useState('');
-  const [universities, setUniversities] = useState<University[]>([]);
+  const [careers, setCareers] = useState<Career[]>([]);
   const [loading, setLoading] = useState(true);
 
   axios
-    .get(`${base_url}university.php`)
+    .get(`${base_url}career.php?university_id=${universityId}`)
     .then(response => {
-      setUniversities(response.data);
+      setCareers(response.data);
       setLoading(false);
     })
     .catch(error => {
@@ -40,18 +41,18 @@ const Home = ({navigation}: any) => {
       />
       <ScrollView style={styles.fullSizeBox}>
         {!loading ? (
-          universities
-            .filter(university =>
-              university.name.toLowerCase().includes(search.toLowerCase()),
+          careers
+            .filter(career =>
+              career.name.toLowerCase().includes(search.toLowerCase()),
             )
-            .map(university => (
+            .map(career => (
               <TouchableOpacity
                 onPress={() =>
-                  navigation.push('Careers', {universityId: university.id})
+                  navigation.push('Courses', {careerId: career.id})
                 }
-                key={university.id}
+                key={career.id}
                 style={style.card}>
-                <Text style={style.cardTitle}>{university.name}</Text>
+                <Text style={style.cardTitle}>{career.name}</Text>
               </TouchableOpacity>
             ))
         ) : (
@@ -62,4 +63,4 @@ const Home = ({navigation}: any) => {
   );
 };
 
-export default Home;
+export default Careers;

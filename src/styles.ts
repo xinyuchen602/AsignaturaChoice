@@ -1,8 +1,8 @@
 import {StyleSheet} from 'react-native';
 
-const base_red = '#B82828';
-const base_grey = '#D2D2D2';
-const base_orange = '#FC9951';
+export const base_red = '#B82828';
+export const base_grey = '#D2D2D2';
+export const base_orange = '#FC9951';
 export const styles = StyleSheet.create({
   elevation: {
     elevation: 5,
@@ -46,5 +46,10 @@ export const styles = StyleSheet.create({
   fullSizeBox: {
     width: '100%',
     height: '100%',
+  },
+  error: {
+    color: base_grey,
+    fontSize: 20,
+    fontWeight: 'bold',
   },
 });

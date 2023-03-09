@@ -72,11 +72,42 @@
   justify-content: center;
   margin: 5px 0 5px 0;
   width: 100%;
-  height: 60px;
   padding: 16px;
   border-width: 1px;
   border-color: black;
   border-radius: 10px;
   background-color: $base-grey;
   font-size: 20px;
+}
+
+.reviewSummary {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 0 5px 0;
+  width: 100%;
+  height: 60px;
+  padding: 16px;
+  border-width: 1px;
+  border-color: black;
+  border-radius: 10px;
+  background-color: $base-grey;
+}
+
+.cardTitle {
+    margin: 0 0 5px 0;
+    width: 100%;
+    height: 40px;
+    padding: 16px;
+    border-width: 1px;
+    border-color: black;
+    border-radius: 10px;
+    background-color: $base-grey;
+    font-size: 20px;
+}
+
+.star {
+  height: 30px;
+  width: 30px;
 }

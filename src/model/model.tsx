@@ -18,6 +18,7 @@ export interface Career {
 export interface Course {
   id: number;
   name: string;
+  avg: number;
 }
 
 export interface Review {
@@ -26,4 +27,5 @@ export interface Review {
   course_id: number;
   score: number;
   text: string;
+  username: string;
 }

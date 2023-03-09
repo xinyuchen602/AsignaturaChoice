@@ -1,27 +1,30 @@
 import React, {useState} from 'react';
-import {View, TextInput, Text, Image} from 'react-native';
+import {View, TextInput, Text, Image, ActivityIndicator} from 'react-native';
 import style from './Login.scss';
-import {styles} from '../../styles';
+import {base_grey, styles} from '../../styles';
 import axios from 'axios';
 import {base_url} from '../../constants';
 
 const Login = ({navigation}: any) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const handleLogin = () => {
+    setLoading(true);
     axios
-      .post(`${base_url}login2.php`, {
+      .post(`${base_url}login.php`, {
         username: username,
         password: password,
       })
-      .then(response => {
-        console.log(response);
+      .then(() => {
+        setLoading(false);
         navigation.push('Home');
       })
       .catch(error => {
         // navigation.push('Home');
         console.log(error);
+        setLoading(false);
       });
   };
 
@@ -46,9 +49,16 @@ const Login = ({navigation}: any) => {
         onChangeText={setPassword}
         secureTextEntry
       />
-      <Text style={[style.button, styles.elevation]} onPress={handleLogin}>
-        Entrar
-      </Text>
+      {loading ? (
+        <ActivityIndicator
+          style={[style.button, styles.elevation]}
+          color={base_grey}
+        />
+      ) : (
+        <Text style={[style.button, styles.elevation]} onPress={handleLogin}>
+          Entrar
+        </Text>
+      )}
       <Text
         style={[style.registerText, styles.elevation]}
         onPress={handleRegister}>
