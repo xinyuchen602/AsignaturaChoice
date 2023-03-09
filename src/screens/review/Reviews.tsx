@@ -12,6 +12,7 @@ import {base_grey, styles} from '../../styles';
 import {Review} from '../../model/model';
 import axios from 'axios';
 import {base_url} from '../../constants';
+import {AirbnbRating, Rating} from 'react-native-ratings';
 
 const Reviews = ({route, navigation}: any) => {
   const {courseId} = route.params;
@@ -43,8 +44,17 @@ const Reviews = ({route, navigation}: any) => {
             )
             .map(review => (
               <View key={review.id} style={style.card}>
-                <Text>{review.username}</Text>
-                <Text style={style.cardTitle}>{review.text}</Text>
+                <View style={style.cardTitle}>
+                  <Text>{review.username}</Text>
+                  <AirbnbRating
+                    defaultRating={review.score}
+                    selectedColor={'#000000'}
+                    showRating={false}
+                    size={20}
+                    isDisabled={true}
+                  />
+                </View>
+                <Text>{review.text}</Text>
               </View>
             ))
         ) : (
