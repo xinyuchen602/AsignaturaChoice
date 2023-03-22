@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "489652409192",
+    "project_id": "asignaturachoice",
+    "storage_bucket": "asignaturachoice.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:489652409192:android:67c899a0b1627d9f7c7cdd",
+        "android_client_info": {
+          "package_name": "com.tuasignaturaui"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "489652409192-8tkf5u8m94ckivrs15udl4frknprsiid.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeHYKkPTSWoG_L0Q3iBalbF4uz6cdZGtQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "489652409192-8tkf5u8m94ckivrs15udl4frknprsiid.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

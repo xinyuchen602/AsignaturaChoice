@@ -2,29 +2,31 @@ import React, {useState} from 'react';
 import {View, TextInput, Text, Image, ActivityIndicator} from 'react-native';
 import style from './Login.scss';
 import {base_grey, styles} from '../../styles';
-import axios from 'axios';
-import {base_url} from '../../constants';
+import api from '../../api/api';
+import LoginInstance from '../../api/LoginInstance';
 
 const Login = ({navigation}: any) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
+  const [loginError, setLoginError] = useState(false);
 
   const handleLogin = () => {
     setLoading(true);
-    axios
-      .post(`${base_url}login.php`, {
+    api
+      .post('login.php', {
         username: username,
         password: password,
       })
-      .then(() => {
+      .then(response => {
         setLoading(false);
+        setLoginError(false);
+        LoginInstance.saveLogIn(response.data);
         navigation.push('Home');
       })
-      .catch(error => {
-        // navigation.push('Home');
-        console.log(error);
+      .catch(() => {
         setLoading(false);
+        setLoginError(true);
       });
   };
 
@@ -36,6 +38,9 @@ const Login = ({navigation}: any) => {
     <View style={style.container}>
       <Image source={require('../../assets/icon.png')} style={style.logo} />
       <Text style={[style.title, styles.elevation]}>Tú Asignatura</Text>
+      {loginError && (
+        <Text style={styles.error}>Las credenciales son incorrectas</Text>
+      )}
       <TextInput
         style={[styles.input, styles.elevation]}
         placeholder="Usuario"

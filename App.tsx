@@ -9,6 +9,7 @@ import {styles} from './src/styles';
 import Careers from './src/screens/career/Careers';
 import Courses from './src/screens/course/Courses';
 import Reviews from './src/screens/review/Reviews';
+import NewReview from './src/screens/new_review/NewReview';
 
 const Stack = createNativeStackNavigator();
 
@@ -66,7 +67,14 @@ export default function App() {
           name="Reviews"
           component={Reviews}
           options={{
-            title: 'Tú comentario',
+            title: 'Comentarios',
+          }}
+        />
+        <Stack.Screen
+          name="NewReview"
+          component={NewReview}
+          options={{
+            title: 'Tú Comentario',
           }}
         />
       </Stack.Navigator>

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   View,
   TextInput,
@@ -10,23 +10,22 @@ import {
 import style from './Home.scss';
 import {base_grey, styles} from '../../styles';
 import {University} from '../../model/model';
-import axios from 'axios';
-import {base_url} from '../../constants';
+import api from '../../api/api';
 
 const Home = ({navigation}: any) => {
   const [search, setSearch] = useState('');
   const [universities, setUniversities] = useState<University[]>([]);
   const [loading, setLoading] = useState(true);
 
-  axios
-    .get(`${base_url}university.php`)
-    .then(response => {
-      setUniversities(response.data);
-      setLoading(false);
-    })
-    .catch(error => {
-      console.log(error);
-    });
+  useEffect(() => {
+    api
+      .get('university.php')
+      .then(response => {
+        setUniversities(response.data);
+        setLoading(false);
+      })
+      .catch(() => {});
+  }, []);
 
   return (
     <View style={styles.container}>

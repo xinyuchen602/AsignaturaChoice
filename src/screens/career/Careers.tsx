@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   View,
   TextInput,
@@ -9,9 +9,8 @@ import {
 } from 'react-native';
 import style from './Careers.scss';
 import {base_grey, styles} from '../../styles';
-import axios from 'axios/index';
-import {base_url} from '../../constants';
 import {Career} from '../../model/model';
+import api from '../../api/api';
 
 const Careers = ({route, navigation}: any) => {
   const {universityId} = route.params;
@@ -19,15 +18,15 @@ const Careers = ({route, navigation}: any) => {
   const [careers, setCareers] = useState<Career[]>([]);
   const [loading, setLoading] = useState(true);
 
-  axios
-    .get(`${base_url}career.php?university_id=${universityId}`)
-    .then(response => {
-      setCareers(response.data);
-      setLoading(false);
-    })
-    .catch(error => {
-      console.log(error);
-    });
+  useEffect(() => {
+    api
+      .get(`career.php?university_id=${universityId}`)
+      .then(response => {
+        setCareers(response.data);
+        setLoading(false);
+      })
+      .catch(() => {});
+  }, [universityId]);
 
   return (
     <View style={styles.container}>

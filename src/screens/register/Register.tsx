@@ -2,8 +2,8 @@ import {ActivityIndicator, Image, Text, TextInput, View} from 'react-native';
 import style from './Register.scss';
 import React, {useState} from 'react';
 import {base_grey, styles} from '../../styles';
-import axios from 'axios/index';
 import {base_url, email_regex} from '../../constants';
+import api from '../../api/api';
 
 const Register = ({navigation}: any) => {
   const [username, setUsername] = useState('');
@@ -22,7 +22,7 @@ const Register = ({navigation}: any) => {
     } else {
       setEmailError(false);
     }
-    axios
+    api
       .post(`${base_url}register.php`, {
         username: username,
         email: email,
@@ -33,10 +33,9 @@ const Register = ({navigation}: any) => {
         setUsernameError(false);
         navigation.goBack();
       })
-      .catch(error => {
+      .catch(() => {
         setLoading(false);
         setUsernameError(true);
-        console.log(error);
       });
   };
 
