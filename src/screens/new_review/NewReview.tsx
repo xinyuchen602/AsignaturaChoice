@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import {Text, TextInput, View} from 'react-native';
-import {styles} from '../../styles';
+import {ActivityIndicator, Text, TextInput, View} from 'react-native';
+import {base_grey, styles} from '../../styles';
 import style from './NewReview.scss';
 import {AirbnbRating} from 'react-native-ratings';
 import api from '../../api/api';
@@ -55,9 +55,16 @@ const NewReview = ({navigation, route}: any) => {
           maxLength={1027}
         />
       </View>
-      <Text onPress={handlePublish} style={[style.button, styles.elevation]}>
-        Publicar
-      </Text>
+      {!loading ? (
+        <Text onPress={handlePublish} style={[style.button, styles.elevation]}>
+          Publicar
+        </Text>
+      ) : (
+        <ActivityIndicator
+          style={[style.button, styles.elevation]}
+          color={base_grey}
+        />
+      )}
       <Text
         onPress={() => navigation.goBack()}
         style={[style.buttonBack, styles.elevation]}>

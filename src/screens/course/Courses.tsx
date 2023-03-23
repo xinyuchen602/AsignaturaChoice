@@ -48,7 +48,10 @@ const Courses = ({route, navigation}: any) => {
             .map(course => (
               <TouchableOpacity
                 onPress={() =>
-                  navigation.push('Reviews', {courseId: course.id})
+                  navigation.push('Reviews', {
+                    courseId: course.id,
+                    name: course.name,
+                  })
                 }
                 key={course.id}
                 style={style.card}>

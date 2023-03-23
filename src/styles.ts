@@ -52,4 +52,7 @@ export const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
   },
+  absolute: {
+    position: 'absolute',
+  },
 });

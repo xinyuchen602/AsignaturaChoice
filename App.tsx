@@ -4,12 +4,12 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Login from './src/screens/login/Login';
 import Register from './src/screens/register/Register';
 import Home from './src/screens/home/Home';
-import {Image} from 'react-native';
-import {styles} from './src/styles';
 import Careers from './src/screens/career/Careers';
 import Courses from './src/screens/course/Courses';
 import Reviews from './src/screens/review/Reviews';
 import NewReview from './src/screens/new_review/NewReview';
+import NavBarButton from './src/components/NavBarButton';
+import Profile from './src/screens/profile/Profile';
 
 const Stack = createNativeStackNavigator();
 
@@ -25,12 +25,7 @@ export default function App() {
           headerTitleStyle: {
             fontWeight: 'bold',
           },
-          headerRight: () => (
-            <Image
-              source={require('./src/assets/icon.png')}
-              style={styles.logo}
-            />
-          ),
+          headerRight: NavBarButton,
         }}>
         <Stack.Screen
           name="Login"
@@ -46,21 +41,26 @@ export default function App() {
           name="Home"
           component={Home}
           options={{
-            title: 'Tú Universidad',
+            title: 'Universidades',
           }}
+        />
+        <Stack.Screen
+          name={'Profile'}
+          component={Profile}
+          options={{title: 'Perfil'}}
         />
         <Stack.Screen
           name="Careers"
           component={Careers}
           options={{
-            title: 'Tú Grado',
+            title: 'Grados',
           }}
         />
         <Stack.Screen
           name="Courses"
           component={Courses}
           options={{
-            title: 'Tú Asignatura',
+            title: 'Asignaturas',
           }}
         />
         <Stack.Screen
