@@ -10,6 +10,7 @@ import Reviews from './src/screens/review/Reviews';
 import NewReview from './src/screens/new_review/NewReview';
 import NavBarButton from './src/components/NavBarButton';
 import Profile from './src/screens/profile/Profile';
+import EditReview from './src/screens/edit_review/EditReview';
 
 const Stack = createNativeStackNavigator();
 
@@ -73,6 +74,13 @@ export default function App() {
         <Stack.Screen
           name="NewReview"
           component={NewReview}
+          options={{
+            title: 'Tú Comentario',
+          }}
+        />
+        <Stack.Screen
+          name="EditReview"
+          component={EditReview}
           options={{
             title: 'Tú Comentario',
           }}

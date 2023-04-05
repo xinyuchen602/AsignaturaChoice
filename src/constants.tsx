@@ -1,2 +1,2 @@
-export const base_url = 'http://asignaturachoice.me/ws/';
+export const base_url = 'https://asignaturachoice.me/ws/';
 export const email_regex = /.+@.+\..+/;
