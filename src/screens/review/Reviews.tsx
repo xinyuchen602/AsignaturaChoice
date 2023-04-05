@@ -53,7 +53,7 @@ const Reviews = ({route, navigation}: any) => {
       .catch(() => {});
   };
 
-  function buildReviewCard(review: Review, color: string | null) {
+  function buildReviewCard(review: Review, color: string | null = null) {
     return (
       <View
         key={review.id}
