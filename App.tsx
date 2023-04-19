@@ -11,10 +11,15 @@ import NewReview from './src/screens/new_review/NewReview';
 import NavBarButton from './src/components/NavBarButton';
 import Profile from './src/screens/profile/Profile';
 import EditReview from './src/screens/edit_review/EditReview';
+import mobileAds from 'react-native-google-mobile-ads';
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+  mobileAds()
+    .initialize()
+    .then(() => {});
+
   return (
     <NavigationContainer>
       <Stack.Navigator

@@ -1,4 +1,8 @@
 {
   "name": "TuAsignaturaUI",
-  "displayName": "TuAsignaturaUI"
+  "displayName": "TuAsignaturaUI",
+  "react-native-google-mobile-ads": {
+    "android_app_id": "ca-app-pub-3071381183586418~6129744093",
+    "ios_app_id": "ca-app-pub-3071381183586418~6129744093"
+  }
 }

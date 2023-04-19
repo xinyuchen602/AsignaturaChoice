@@ -8,6 +8,7 @@ import style from './Profile.scss';
 import LoginInstance from '../../api/LoginInstance';
 import {AirbnbRating} from 'react-native-ratings';
 import {removeUser} from '../../storage/AsyncStorage';
+import {DefaultBanner} from '../../components/DefaultBanner';
 
 const Profile = ({navigation, route}: any) => {
   const {id} = route.params;
@@ -85,6 +86,7 @@ const Profile = ({navigation, route}: any) => {
           Cerrar Sesión
         </Text>
       )}
+      <DefaultBanner />
     </View>
   );
 };

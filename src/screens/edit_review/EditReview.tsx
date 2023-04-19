@@ -5,6 +5,7 @@ import style from './EditReview.scss';
 import {AirbnbRating} from 'react-native-ratings';
 import api from '../../api/api';
 import LoginInstance from '../../api/LoginInstance';
+import {DefaultBanner} from '../../components/DefaultBanner';
 
 const EditReview = ({navigation, route}: any) => {
   const {review, onReviewEdited} = route.params;
@@ -71,6 +72,7 @@ const EditReview = ({navigation, route}: any) => {
         style={[style.buttonBack, styles.elevation]}>
         Cancelar
       </Text>
+      <DefaultBanner />
     </View>
   );
 };

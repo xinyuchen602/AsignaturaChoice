@@ -11,6 +11,7 @@ import style from './Careers.scss';
 import {base_grey, styles} from '../../styles';
 import {Career} from '../../model/model';
 import api from '../../api/api';
+import {DefaultBanner} from '../../components/DefaultBanner';
 
 const Careers = ({route, navigation}: any) => {
   const {universityId} = route.params;
@@ -58,6 +59,7 @@ const Careers = ({route, navigation}: any) => {
           <ActivityIndicator size={'large'} color={base_grey} />
         )}
       </ScrollView>
+      <DefaultBanner />
     </View>
   );
 };

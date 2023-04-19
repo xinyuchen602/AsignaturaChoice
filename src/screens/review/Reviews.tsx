@@ -13,6 +13,7 @@ import {Review} from '../../model/model';
 import {AirbnbRating} from 'react-native-ratings';
 import api from '../../api/api';
 import LoginInstance from '../../api/LoginInstance';
+import {DefaultBanner} from '../../components/DefaultBanner';
 
 const Reviews = ({route, navigation}: any) => {
   const {courseId, name} = route.params;
@@ -139,6 +140,7 @@ const Reviews = ({route, navigation}: any) => {
           )}
         </TouchableOpacity>
       </View>
+      <DefaultBanner />
     </View>
   );
 };

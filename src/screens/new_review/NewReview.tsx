@@ -5,6 +5,7 @@ import style from './NewReview.scss';
 import {AirbnbRating} from 'react-native-ratings';
 import api from '../../api/api';
 import LoginInstance from '../../api/LoginInstance';
+import {DefaultBanner} from '../../components/DefaultBanner';
 
 const NewReview = ({navigation, route}: any) => {
   const {courseId, onReviewAdded} = route.params;
@@ -70,6 +71,7 @@ const NewReview = ({navigation, route}: any) => {
         style={[style.buttonBack, styles.elevation]}>
         Cancelar
       </Text>
+      <DefaultBanner />
     </View>
   );
 };
