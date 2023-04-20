@@ -34,7 +34,7 @@ export const styles = StyleSheet.create({
   },
   searchBar: {
     width: '100%',
-    height: 40,
+    height: 50,
     padding: 10,
     borderWidth: 1,
     borderColor: 'black',

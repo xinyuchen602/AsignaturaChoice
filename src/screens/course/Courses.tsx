@@ -33,7 +33,7 @@ const Courses = ({route, navigation}: any) => {
   return (
     <View style={style.container}>
       <TextInput
-        style={[style.input, styles.elevation]}
+        style={[styles.searchBar, styles.elevation]}
         placeholder="Buscar"
         value={search}
         onChangeText={value => {
