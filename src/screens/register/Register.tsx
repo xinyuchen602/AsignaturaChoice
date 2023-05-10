@@ -4,6 +4,7 @@ import React, {useState} from 'react';
 import {base_grey, styles} from '../../styles';
 import {base_url, email_regex} from '../../constants';
 import api from '../../api/api';
+import Verification from '../verification/Verification';
 
 const Register = ({navigation}: any) => {
   const [username, setUsername] = useState('');
@@ -12,6 +13,8 @@ const Register = ({navigation}: any) => {
   const [loading, setLoading] = useState(false);
   const [usernameError, setUsernameError] = useState(false);
   const [emailError, setEmailError] = useState(false);
+  const [code, setCode] = useState('');
+  const [showVerification, setShowVerification] = useState(false);
 
   const handleRegister = () => {
     setLoading(true);
@@ -23,21 +26,45 @@ const Register = ({navigation}: any) => {
       setEmailError(false);
     }
     api
-      .post(`${base_url}register.php`, {
-        username: username,
+      .post(`${base_url}mail.php?`, {
         email: email,
+        username: username,
         password: password,
       })
-      .then(() => {
+      .then(response => {
         setLoading(false);
         setUsernameError(false);
-        navigation.goBack();
+        setCode(response.data);
+        setShowVerification(true);
       })
       .catch(() => {
         setLoading(false);
         setUsernameError(true);
       });
   };
+
+  if (showVerification) {
+    return (
+      <Verification
+        verificationCode={code}
+        onConfirm={() => {
+          api
+            .post(`${base_url}register.php`, {
+              username: username,
+              email: email,
+              password: password,
+            })
+            .then(() => {
+              navigation.goBack();
+            })
+            .catch(() => {});
+        }}
+        onCancel={() => {
+          setShowVerification(false);
+        }}
+      />
+    );
+  }
 
   return (
     <View style={style.container}>
